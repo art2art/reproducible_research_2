@@ -4,7 +4,7 @@ require(ggplot2)
 opts_chunk$set(message = FALSE)
 ```
 
-Exploration of the NOAA Storm Database, and which types of meteorological events are most harmful
+Exploration of the NOAA Storm Database and types of the most harmful meteorological events
 ========================================================================================
 
 ## Synopsis

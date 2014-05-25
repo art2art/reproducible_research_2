@@ -1,12 +1,12 @@
 
 
 
-Exploration of the NOAA Storm Database, and which types of meteorological events are most harmful
+Exploration of the NOAA Storm Database and types of the most harmful meteorological events
 ========================================================================================
 
 ## Synopsis
 
-The target of this analysis is to find out which metereological events cause the most harmful effects for human health and have the greatest economic consequences in terms of property damage. For the research of given objectives was used the U.S. National Oceanic and Atmospheric Administration's storm database from the past 60 years. It turned out that tornado has been most harmful metereological event which have caused over 90000 direct injuries in the last 60 years and flooding has had the greatest economic consequences with over 150 billion dollars in property damages.
+The target of this analysis is to find out which metereological events cause the most harmful effects for human health and have the greatest economic consequences in terms of property damage. For the research of given objectives the U.S. National Oceanic and Atmospheric Administration's storm database from the past 60 years was used. It turned out that tornado was the most harmful metereological event which caused over 90000 injuries in the last 60 years and floods had the greatest economic consequences with over 150 billion dollars in property damages.
 
 ## Data Processing
 
@@ -58,7 +58,7 @@ storm.short <- storm[, interest]
 ```
 
 
-The `EVTYPE` variable at the `storm` dataframe is very untidy and has 985 levels. Meanwhile the National Weather Service Storm Data Documentation specifies 48 permitted events. First of all, lets reduce count of levels into 48 by the script [cleaning_storm_data.R](https://github.com/art2art/reproducible_research_2/blob/master/cleanStorm.R). The scripts contains `cleanStorm` function which tidies variables of interest - `EVTYPE` and `PROPDMGEXP`.
+The `EVTYPE` variable at the `storm` dataframe is very untidy and has 985 levels. Meanwhile, the National Weather Service Storm Data Documentation specifies 48 permitted events. First of all, let's reduce a count of levels into 48 by the script [cleaning_storm_data.R](https://github.com/art2art/reproducible_research_2/blob/master/cleanStorm.R). The script contains `cleanStorm` function which tidies variables of interest - `EVTYPE` and `PROPDMGEXP`.
 
 
 ```r
@@ -75,7 +75,7 @@ storm.short$ECONOMICDAMAGE <- storm.short$PROPDMGEXP * storm.short$PROPDMG
 ```
 
 
-Finally, create a new dataset adapted for futher data analysis. The new dataset contains total number of injured people, total number of died people and total estimate of damage in dollars per severe weather events.
+Finally, create a new dataset adapted for futher data analysis. The new dataset contains a total number of injured people, a total number of died people and total estimate of damage in dollars per severe weather events.
 
 
 ```r
@@ -87,7 +87,7 @@ loss <- ddply(storm.short, ~EVTYPE, summarise, economicdamage = sum(ECONOMICDAMA
 
 ### Results
 
-Top 10 harmful severe weather events with respect to population health.
+Top 10 of harmful severe weather events with respect to population health.
 
 
 ```r
@@ -125,7 +125,7 @@ p
 ![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 
-Top 10 most deadly severe weather events.
+Top 10 of the most deadly severe weather events.
 
 
 ```r
@@ -148,7 +148,7 @@ format(top10.fatalities, scientific = F)
 ```
 
 
-Make a barplot of top 10 most deadlyevents.
+Make a barplot of top 10 the most deadly events.
 
 
 ```r
@@ -163,7 +163,7 @@ p
 ![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
 
 
-Top 10 events having the greatest economic consequences.
+Top 10 of events having the greatest economic consequences.
 
 
 ```r
@@ -203,7 +203,7 @@ p
 
 ## Conclusion
 
-Tornado together with  is the most harmful  which has caused over 90,000 injuries in the last 60 years. Thunderstorm wind, flood, excessive heat, and lighting were among the most harmful events following tornadoes. Likewise, most deadly events were caused also by tornadoes, with about 5,600 deaths in the past 60 years. Excessive heat, heat, flash flood, and lighting were among the most deadly events following tornadoes. Finally, flooding had the greatest economic consequences, with over 150 billion dollars in property damages. Other hydrometereological events that caused great property damage were hurricanes, tornadoes, storm surges/tides, and flash flooding.
+Tornadoes together with thunderstorm winds, floods and excessive heat were the most harmful severe weather events, which caused over 90000 injuries only in the last 60 years. Most deadly events were caused also by tornadoes with about 5600 deaths in the past 60 years. Floods had the greatest economic consequences with over 150 billion dollars in property damages. Hurricanes, storm surges, tornadoes caused the greates economic consequences as well as. 
 
 
 
