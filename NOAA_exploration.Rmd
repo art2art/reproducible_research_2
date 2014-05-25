@@ -21,7 +21,7 @@ The data got downloaded from [source](https://d396qusza40orc.cloudfront.net/repd
 data.url <- "http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2"
 file.csv <- "stormData.csv"
 
-if (!exists("storm") && file.exists(file.csv))
+if (!exists("storm") & file.exists(file.csv))
     storm <- read.csv(file.csv, na.strings = "")
     
 if (!file.exists(file.csv)) {

@@ -194,7 +194,7 @@ hljs.initHighlightingOnLoad();
 <pre><code class="r">data.url &lt;- &quot;http://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2&quot;
 file.csv &lt;- &quot;stormData.csv&quot;
 
-if (!exists(&quot;storm&quot;) &amp;&amp; file.exists(file.csv)) storm &lt;- read.csv(file.csv, na.strings = &quot;&quot;)
+if (!exists(&quot;storm&quot;) &amp; file.exists(file.csv)) storm &lt;- read.csv(file.csv, na.strings = &quot;&quot;)
 
 if (!file.exists(file.csv)) {
     file.tmp &lt;- tempfile()
