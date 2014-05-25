@@ -85,7 +85,7 @@ top10.injures <- arrange(df = loss, desc(injures))[1:10, ]
 format(top10.injures, scientific = F)
 ```
 
-Make a barplot of top 10 harmful severe weather events with respect to population health.
+Make a barplot of top 10 harmful severe weather events with respect to population health. The plot shows how many victims of weather events were for last 60 years.
 
 ```{r}
 p <- ggplot(top10.injures, aes(x = EVTYPE, y = injures))
@@ -103,7 +103,7 @@ top10.fatalities <- arrange(df = loss, desc(fatalities))[1:10, ]
 format(top10.fatalities, scientific = F)
 ```
 
-Make a barplot of top 10 the most deadly events.
+Make a barplot of top 10 the most deadly events. The plot shows how many deaths from weather events were for last 60 years.
 
 ```{r}
 p <- ggplot(top10.fatalities, aes(x = EVTYPE, y = fatalities))
@@ -121,7 +121,7 @@ top10.economic <- arrange(df = loss, desc(economicdamage))[1:10, ]
 format(top10.economic, scientific = F)
 ```
 
-Make a barplot of top 10 events of greatest economic consequences.
+Make a barplot of top 10 events of greatest economic consequences. The plot shows how big property damage in dollars was caused by weather events in the last 60 years.
 
 ```{r}
 p <- ggplot(top10.economic, aes(x = EVTYPE, y = economicdamage))
