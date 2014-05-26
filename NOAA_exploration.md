@@ -58,7 +58,7 @@ storm.short <- storm[, interest]
 ```
 
 
-The `EVTYPE` variable at the `storm` dataframe is very untidy and has 985 levels. Meanwhile, the National Weather Service Storm Data Documentation specifies 48 permitted events. First of all, let's reduce a count of levels into 48 by the script [cleaning_storm_data.R](https://github.com/art2art/reproducible_research_2/blob/master/cleanStorm.R). The script contains `cleanStorm` function which tidies variables of interest - `EVTYPE` and `PROPDMGEXP`.
+The `EVTYPE` variable at the `storm` dataframe is very untidy and has 985 levels. Meanwhile, the National Weather Service Storm Data Documentation specifies 48 permitted events. First of all, let's reduce a count of levels into 48 by the script [cleanStorm.R](https://github.com/art2art/reproducible_research_2/blob/master/cleanStorm.R). The script contains `cleanStorm` function which tidies variables of interest - `EVTYPE` and `PROPDMGEXP`.
 
 
 ```r
@@ -119,10 +119,12 @@ p <- p + geom_bar(stat = "identity")
 p <- p + xlab("Event type") + ylab("Number of injures")
 p <- p + ggtitle("Top 10 harmful severe weather events")
 p <- p + theme(axis.text.x = element_text(angle = 45, hjust = 1))
-p
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
+
+The plot shows how many victims of weather events were for last 60 years.
+
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
 
 
 Top 10 of the most deadly severe weather events.
@@ -157,10 +159,13 @@ p <- p + geom_bar(stat = "identity")
 p <- p + xlab("Event type") + ylab("Number of deaths")
 p <- p + ggtitle("Top 10 most deadly events")
 p <- p + theme(axis.text.x = element_text(angle = 45, hjust = 1))
-p
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
+
+The plot shows how many deaths from weather events were for last 60 years.
+
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+
 
 
 Top 10 of events having the greatest economic consequences.
@@ -195,10 +200,12 @@ p <- p + geom_bar(stat = "identity")
 p <- p + xlab("Event type") + ylab("The property damage (in dollar amounts)")
 p <- p + ggtitle("Events have the greatest economic consequences")
 p <- p + theme(axis.text.x = element_text(angle = 45, hjust = 1))
-p
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+
+The plot shows how big property damage in dollars was caused by weather events in the last 60 years.
+
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png) 
 
 
 ## Conclusion

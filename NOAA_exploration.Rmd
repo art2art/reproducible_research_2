@@ -52,7 +52,7 @@ interest <- c("EVTYPE", "FATALITIES", "INJURIES", "PROPDMG", "PROPDMGEXP")
 storm.short <- storm[ , interest]
 ```
 
-The `EVTYPE` variable at the `storm` dataframe is very untidy and has 985 levels. Meanwhile, the National Weather Service Storm Data Documentation specifies 48 permitted events. First of all, let's reduce a count of levels into 48 by the script [cleaning_storm_data.R](https://github.com/art2art/reproducible_research_2/blob/master/cleanStorm.R). The script contains `cleanStorm` function which tidies variables of interest - `EVTYPE` and `PROPDMGEXP`.
+The `EVTYPE` variable at the `storm` dataframe is very untidy and has 985 levels. Meanwhile, the National Weather Service Storm Data Documentation specifies 48 permitted events. First of all, let's reduce a count of levels into 48 by the script [cleanStorm.R](https://github.com/art2art/reproducible_research_2/blob/master/cleanStorm.R). The script contains `cleanStorm` function which tidies variables of interest - `EVTYPE` and `PROPDMGEXP`.
 
 ```{r}
 source("cleanStorm.R")
@@ -85,7 +85,7 @@ top10.injures <- arrange(df = loss, desc(injures))[1:10, ]
 format(top10.injures, scientific = F)
 ```
 
-Make a barplot of top 10 harmful severe weather events with respect to population health. The plot shows how many victims of weather events were for last 60 years.
+Make a barplot of top 10 harmful severe weather events with respect to population health.
 
 ```{r}
 p <- ggplot(top10.injures, aes(x = EVTYPE, y = injures))
@@ -93,6 +93,11 @@ p <- p + geom_bar(stat = "identity")
 p <- p + xlab("Event type") + ylab("Number of injures")
 p <- p + ggtitle("Top 10 harmful severe weather events")
 p <- p + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+The plot shows how many victims of weather events were for last 60 years.
+
+```{r, echo = F}
 p
 ```
 
@@ -103,7 +108,7 @@ top10.fatalities <- arrange(df = loss, desc(fatalities))[1:10, ]
 format(top10.fatalities, scientific = F)
 ```
 
-Make a barplot of top 10 the most deadly events. The plot shows how many deaths from weather events were for last 60 years.
+Make a barplot of top 10 the most deadly events.
 
 ```{r}
 p <- ggplot(top10.fatalities, aes(x = EVTYPE, y = fatalities))
@@ -111,8 +116,14 @@ p <- p + geom_bar(stat = "identity")
 p <- p + xlab("Event type") + ylab("Number of deaths")
 p <- p + ggtitle("Top 10 most deadly events")
 p <- p + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+The plot shows how many deaths from weather events were for last 60 years.
+
+```{r, echo = F}
 p
 ```
+
 
 Top 10 of events having the greatest economic consequences.
 
@@ -121,7 +132,7 @@ top10.economic <- arrange(df = loss, desc(economicdamage))[1:10, ]
 format(top10.economic, scientific = F)
 ```
 
-Make a barplot of top 10 events of greatest economic consequences. The plot shows how big property damage in dollars was caused by weather events in the last 60 years.
+Make a barplot of top 10 events of greatest economic consequences.
 
 ```{r}
 p <- ggplot(top10.economic, aes(x = EVTYPE, y = economicdamage))
@@ -129,6 +140,11 @@ p <- p + geom_bar(stat = "identity")
 p <- p + xlab("Event type") + ylab("The property damage (in dollar amounts)")
 p <- p + ggtitle("Events have the greatest economic consequences")
 p <- p + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+The plot shows how big property damage in dollars was caused by weather events in the last 60 years.
+
+```{r, echo = F}
 p
 ```
 
